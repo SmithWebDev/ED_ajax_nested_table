@@ -17,4 +17,6 @@ ApplicationJob	app/jobs/application_job.rb	/^class ApplicationJob < ActiveJob::B
 ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c
 ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
 Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	module:ApplicationCable
+City	app/models/city.rb	/^class City < ApplicationRecord$/;"	c
 Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	module:ApplicationCable
+Country	app/models/country.rb	/^class Country < ApplicationRecord$/;"	c

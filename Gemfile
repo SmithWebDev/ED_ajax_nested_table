@@ -26,7 +26,7 @@ group :development do
   gem 'guard'
   gem 'guard-bundler', require: false
   gem 'guard-ctags-bundler'
-  gem 'guard-cucumber'
+  # gem 'guard-cucumber'
   gem 'guard-haml'
   gem 'guard-rspec', require: false
 

@@ -27,35 +27,35 @@ guard :bundler do
   files.each { |file| watch(helper.real_path(file)) }
 end
 
-guard 'ctags-bundler', :src_path => ["app", "lib", "spec/support"] do
-  watch(/^(app|lib|spec\/support)\/.*\.rb$/)
+guard 'ctags-bundler', src_path: ['app', 'lib', 'spec/support'] do
+  watch(%r{^(app|lib|spec/support)/.*\.rb$})
   watch('Gemfile.lock')
 end
 
-cucumber_options = {
-  # Below are examples overriding defaults
+# cucumber_options = {
+# Below are examples overriding defaults
 
-  # cmd: 'bin/cucumber',
-  # cmd_additional_args: '--profile guard',
+# cmd: 'bin/cucumber',
+# cmd_additional_args: '--profile guard',
 
-  # all_after_pass: false,
-  # all_on_start: false,
-  # keep_failed: false,
-  # feature_sets: ['features/frontend', 'features/experimental'],
+# all_after_pass: false,
+# all_on_start: false,
+# keep_failed: false,
+# feature_sets: ['features/frontend', 'features/experimental'],
 
-  # run_all: { cmd_additional_args: '--profile guard_all' },
-  # focus_on: { 'wip' }, # @wip
-  # notification: false
-}
+# run_all: { cmd_additional_args: '--profile guard_all' },
+# focus_on: { 'wip' }, # @wip
+# notification: false
+# }
 
-guard "cucumber", cucumber_options do
-  watch(%r{^features/.+\.feature$})
-  watch(%r{^features/support/.+$}) { "features" }
-
-  watch(%r{^features/step_definitions/(.+)_steps\.rb$}) do |m|
-    Dir[File.join("**/#{m[1]}.feature")][0] || "features"
-  end
-end
+# guard "cucumber", cucumber_options do
+#  watch(%r{^features/.+\.feature$})
+#  watch(%r{^features/support/.+$}) { "features" }
+#
+#  watch(%r{^features/step_definitions/(.+)_steps\.rb$}) do |m|
+#    Dir[File.join("**/#{m[1]}.feature")][0] || "features"
+#  end
+# end
 
 # Sample guardfile block for Guard::Haml
 # You can use some options to change guard-haml configuration
@@ -69,7 +69,7 @@ guard :haml do
   watch(/^.+(\.html\.haml)$/)
 end
 
-# Note: The cmd option is now required due to the increasing number of ways
+# NOTE: The cmd option is now required due to the increasing number of ways
 #       rspec may be run, below are examples of the most common uses.
 #  * bundler: 'bundle exec rspec'
 #  * bundler binstubs: 'bin/rspec'
@@ -78,8 +78,8 @@ end
 #  * zeus: 'zeus rspec' (requires the server to be started separately)
 #  * 'just' rspec: 'rspec'
 
-guard :rspec, cmd: "bundle exec rspec" do
-  require "guard/rspec/dsl"
+guard :rspec, cmd: 'bundle exec rspec' do
+  require 'guard/rspec/dsl'
   dsl = Guard::RSpec::Dsl.new(self)
 
   # Feel free to open issues for suggestions and improvements
@@ -95,7 +95,7 @@ guard :rspec, cmd: "bundle exec rspec" do
   dsl.watch_spec_files_for(ruby.lib_files)
 
   # Rails files
-  rails = dsl.rails(view_extensions: %w(erb haml slim))
+  rails = dsl.rails(view_extensions: %w[erb haml slim])
   dsl.watch_spec_files_for(rails.app_files)
   dsl.watch_spec_files_for(rails.views)
 
@@ -119,6 +119,6 @@ guard :rspec, cmd: "bundle exec rspec" do
   # Turnip features and steps
   watch(%r{^spec/acceptance/(.+)\.feature$})
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$}) do |m|
-    Dir[File.join("**/#{m[1]}.feature")][0] || "spec/acceptance"
+    Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance'
   end
 end
