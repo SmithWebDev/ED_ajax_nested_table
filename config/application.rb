@@ -34,21 +34,21 @@ module AjaxNestedTable
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-  end
-end
 
-config.generators do |g|
-  # voluntarily omitting the use of assets, helpers, test_framework, and
-  # jbuilder
-  g.assets false
-  g.helper false
-  g.test_framework :rspec,
-                   fixtures: true,
-                   view_specs: false,
-                   helper_specs: false,
-                   routing_specs: false,
-                   controller_specs: true,
-                   request_specs: false
-  g.fixture_replacement :factory_bot, dir: 'spec/factories'
-  g.jbuilder false
+    config.generators do |g|
+      # voluntarily omitting the use of assets, helpers, test_framework, and
+      # jbuilder
+      g.assets false
+      g.helper false
+      g.test_framework :rspec,
+                       fixtures: true,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: true,
+                       request_specs: false
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
+      g.jbuilder false
+    end
+  end
 end
