@@ -75,5 +75,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   # Factory Bot config preference
-  g.factory_bot suffix: 'factory'
+  config.generators do |g|
+    g.factory_bot suffix: 'factory'
+  end
 end
