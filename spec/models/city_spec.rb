@@ -11,11 +11,11 @@ describe City do
   it 'is invalid without a name' do
     city = City.new(name: nil)
     city.valid?
-    expect(city.errors[:name].to(include("can't be blank")))
+    expect(city.errors[:name]).to(include("can't be blank"))
   end
   it 'is invalid without a population number' do
     city = City.new(population: nil)
     city.valid?
-    expect(city.errors[:population].to(include("can't be blank")))
+    expect(city.errors[:population]).to(include("can't be blank"))
   end
 end
