@@ -15,6 +15,7 @@ gem 'webpacker', '~> 5.0'
 
 # Custom Project Gems
 gem 'hirb'
+gem 'rails-controller-testing'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

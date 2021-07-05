@@ -13,7 +13,7 @@ class CountriesController < ApplicationController
   # GET /countries/new
   def new
     @country = Country.new
-  gend
+  end
 
   # GET /countries/1/edit
   def edit
