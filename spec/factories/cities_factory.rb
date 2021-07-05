@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :city do
-    name { "MyString" }
-    population { 1 }
-    country { nil }
+    association :country
+    name { Faker::Address.country }
+    population { Faker::Number.number(digits: 7) }
   end
 end
